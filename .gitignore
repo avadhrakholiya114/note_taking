@@ -15,3 +15,8 @@ home/tests.py
 home/apps.py
 .idea/
 .vscode/
+note/__init__.py
+note/wsgi.py
+note/admin.py
+note/tests.py
+note/apps.py

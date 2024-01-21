@@ -7,3 +7,11 @@ db.sqlite3
 *.pyc
 *.pyo
 *.pyd
+manage.py
+home/__init__.py
+home/wsgi.py
+home/admin.py
+home/tests.py
+home/apps.py
+.idea/
+.vscode/

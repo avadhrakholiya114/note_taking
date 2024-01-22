@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-    
-</body>
-</html>
+
+
+{% extends 'base.html' %}
+{% load static %}
+ {% block content %}
+    <div class="row">
+        <div class="col">
+            <div class="home-holder text-center">
+                <h1 class="fs-3">
+                    Hello,World
+                </h1>
+                <p>Welcome to the most amezing smart app</p>
+                <a href="{% url 'notelist' %}" class="btn btn-success btn-sm">Go to the Smart Notes</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

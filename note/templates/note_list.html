@@ -3,9 +3,32 @@
 
     {% block content %}
 
-    <h1>This Are The Notes</h1>
-    {% for i in  notes %}
-    <li class="notes">{{i.title}}</li>
-    <a href=""></a>
-    {% endfor %}
+    <div class="row">
+        <div class="col">
+            <div class="notes_list_heading text-center">
+                    <h1 class="fs-4">This Are The Notes</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+             {% for i in  notes %}
+         <div class="col-md-4">
+             <div class="card">
+                 <div class="card-header">
+                     {{i.title}}
+                 </div>
+                 <div class="card-body">
+                     <p>{{i.text|truncatechars:10}}</p>
+                 </div>
+                 <div class="card-footer">
+                     <a href="{% url 'detail' id=i.id  %}" class="btn btn-info btn-sm">view Notes</a>
+                 </div>
+             </div>
+         </div>
+            {% endfor %}
+    </div>
+
+
+
     {% endblock %}

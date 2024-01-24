@@ -22,3 +22,26 @@ def create_note(request):
 
     return render(request, 'note_form.html', {'form': form})
 
+
+def update_note(request, id):
+    note = Notes.objects.get(pk=id)
+
+    if request.method == 'POST':
+        form = NotesForm(request.POST, instance=note)
+        if form.is_valid():
+            form.save()
+            return redirect('notelist')
+    else:
+        form = NotesForm(instance=note)
+
+    return render(request, 'update_form.html', {'form': form})
+
+def delete_note(request, id):
+    note = Notes.objects.get(pk=id)
+
+    if request.method == 'POST':
+        note.delete()
+        return redirect('notelist')
+
+    return render(request, 'delete_conform.html', {'note': note})
+

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card ">
+            <div class="card-header">
+                <h2>Confirm Delete</h2>
+                <p>Are you sure you want to delete "{{ note.title }}"?</p>
+            </div>
+            <div class="card-body">
+
+                <form method="post" action="{% url 'delete_note' id=note.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+
+            </div>
+             <div class="card-footer">
+                 <a  class="btn btn-dark" href="{% url 'notelist' %}">Cancel</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

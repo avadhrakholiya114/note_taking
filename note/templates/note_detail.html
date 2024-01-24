@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 
-    {% block content %}
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    Note Details
-                </div>
-                <div class="card-body">
-                    <h1 class="fs-5">{{note.title}}</h1>
-                    <p>{{note.text}}</p>
-                </div>
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card ">
+            <div class="card-header">
+                Note Details
             </div>
+            <div class="card-body">
+                <h1 class="fs-5">{{note.title}}</h1>
+                <p>{{note.text}}</p>
+                <a class="btn btn-primary" href="{% url 'notelist' %}">Back</a>
+
+                <a class="btn btn-warning" href="{% url 'update_note' id=note.id %}">Update</a>
+                <a class="btn btn-danger" href="{% url 'delete_note' id=note.id %}">Delete</a>
+            </div>
+
+
         </div>
     </div>
-     {% endblock %}
+</div>
+{% endblock %}

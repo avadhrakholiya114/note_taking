@@ -11,23 +11,31 @@
         </div>
     </div>
 
-    <div class="row mt-3">
-             {% for i in  notes %}
-         <div class="col-md-4">
-             <div class="card mb-3">
-                 <div class="card-header">
-                     {{i.title}}
-                 </div>
-                 <div class="card-body">
-                     <p>{{i.text|truncatechars:10}}</p>
-                 </div>
-                 <div class="card-footer">
-                     <a href="{% url 'detail' id=i.id  %}" class="btn btn-info btn-sm">view Notes</a>
-                 </div>
-             </div>
-         </div>
-            {% endfor %}
-    </div>
+   <div class="row mt-3">
+    {% if notes %}
+        {% for note in notes %}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        {{ note.title }}
+                    </div>
+                    <div class="card-body">
+                        <p>{{ note.text|truncatechars:10 }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'detail' id=note.id %}" class="btn btn-info btn-sm">View Notes</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="col">
+            <div class="alert alert-info">
+                <p>Sorry, no notes added yet.</p>
+            </div>
+        </div>
+    {% endif %}
+</div>
 
 
 
